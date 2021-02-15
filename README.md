@@ -17,7 +17,7 @@ reference: https://istio.io/latest/docs/setup/install/istioctl/
    http://127.0.0.1:52992
    ```
 7. testing service-a can access service-b: `curl http://127.0.0.1:52783/calling-service-b?name=serviceb` <br>
-   testing service-b can access service-a: `curl http://127.0.0.1:52992/calling-service-a?name=service` <br>
+   testing service-b can access service-a: `curl http://127.0.0.1:52992/calling-service-a?name=servicea` <br>
    each response code should be 200.
 
 ## Explain OPA policy
