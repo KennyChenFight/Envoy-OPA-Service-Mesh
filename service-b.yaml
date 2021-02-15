@@ -1,0 +1,41 @@
+####################################################
+# App Deployment with OPA-Envoy and Envoy sidecars.
+####################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-b
+  labels:
+    app: service-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-b
+  template:
+    metadata:
+      labels:
+        app: service-b
+    spec:
+      containers:
+        - name: app
+          image: kennychenfight/service-b:v1
+          ports:
+            - containerPort: 8081
+          imagePullPolicy: Always
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-b
+  labels:
+    app: service-b
+spec:
+  selector:
+    app: service-b
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: NodePort
