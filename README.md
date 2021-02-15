@@ -20,7 +20,7 @@ reference: https://istio.io/latest/docs/setup/install/istioctl/
    testing service-b can access service-a: `curl http://127.0.0.1:52992/calling-service-a?name=service` <br>
    each response code should be 200.
 
-## explain OPA policy
+## Explain OPA policy
 you can look at service-a main.go and service-b main.go code. <br>
 policy rule: when one service want to access the other service it should provide correct path and query string. <br>
 These are simple rules, just for demo. <br>
